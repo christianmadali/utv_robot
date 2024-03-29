@@ -1,0 +1,10 @@
+<sdf version="1.6">
+  <world name="my_world">
+    <include>
+      <uri>model://utv_vehicle_model</uri>
+    </include>
+    <include>
+      <uri>model://winding_valley_heightmap</uri>
+    </include>
+  </world>
+</sdf>

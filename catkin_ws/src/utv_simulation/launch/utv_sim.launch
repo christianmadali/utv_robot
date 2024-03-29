@@ -6,8 +6,4 @@
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(arg world_file)"/>
   </include>
-  <!-- Launch teleop_twist_keyboard -->
-  <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop" output="screen">
-    <param name="cmd_vel" value="/polaris/cmd_vel"/> <!-- Adjust the topic name as needed -->
-  </node>
 </launch>

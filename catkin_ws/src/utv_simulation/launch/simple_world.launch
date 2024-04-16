@@ -2,7 +2,7 @@
   <!-- Set GAZEBO_MODEL_PATH for this launch session -->
   <env name="GAZEBO_MODEL_PATH" value="$(optenv GAZEBO_MODEL_PATH):$(find utv_simulation)/models"/>
 
-  <arg name="world_file" default="$(find utv_simulation)/worlds/my_world.world"/>
+  <arg name="world_file" default="$(find utv_simulation)/worlds/simple_world.world"/>
   
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(arg world_file)"/>

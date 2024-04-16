@@ -1,6 +1,15 @@
 <?xml version="1.0" ?>
 <sdf version="1.5">
   <model name="polaris_ranger_xp900">
+    <plugin name="differential_drive_controller" filename="libdiffdrive_plugin.so">
+	    <left_joint>front_left_wheel_joint</left_joint>
+	    <right_joint>front_right_wheel_joint</right_joint>
+	    <wheel_separation>1.2</wheel_separation>
+	    <wheel_radius>0.4</wheel_radius>
+	    <odom_publish_frequency>1</odom_publish_frequency>
+	    <topic>cmd_vel</topic>
+    </plugin> 
+  
     <static>false</static>
     <link name="chassis">
       <inertial>
@@ -1148,6 +1157,7 @@
       </physics>
     </joint>
 	<!-- Skid Steering Plugin -->
+	<!--
 	<plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
 		<updateRate>100.0</updateRate>
 		<robotNamespace>/polaris</robotNamespace>
@@ -1161,7 +1171,8 @@
 		<torque>50.0</torque>
 		<topicName>cmd_vel</topicName>
 		<broadcastTF>false</broadcastTF>
-	  </plugin>
+	</plugin>
+	--> 
   </model>
 </sdf>
 

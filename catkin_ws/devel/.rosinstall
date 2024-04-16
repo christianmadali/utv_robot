@@ -1,2 +1,2 @@
 - setup-file:
-    local-name: /home/christianmadali/utv_robot/catkin_ws/devel/setup.sh
+    local-name: /home/user/utv_robot/catkin_ws/devel/setup.sh

@@ -1,0 +1,16 @@
+<sdf version="1.6">
+  <world name="simple_world">
+    <include>
+      <uri>model://my_robot</uri>
+      <pose>0 0 0.2 0 0 0</pose>
+    </include>
+    <!-- A global light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <!-- A ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+  </world>
+</sdf>

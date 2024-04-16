@@ -66,6 +66,13 @@
                   <size>.4 .2 .1</size>
                 </box>
               </geometry>
+              <surface>
+		    <contact>
+		      <ode>
+			<max_vel>0</max_vel>
+		      </ode>
+		    </contact>
+		</surface>
             </collision>
 
             <visual name='visual'>
@@ -75,7 +82,7 @@
                 </box>
               </geometry>
             </visual>
-            
+          
             <collision name='caster_collision'>
             <pose>-0.15 0 -0.05 0 0 0</pose>
             <geometry>
@@ -94,6 +101,13 @@
                 </ode>
               </friction>
             </surface>
+            <surface>
+		    <contact>
+		      <ode>
+			<max_vel>0</max_vel>
+		      </ode>
+		    </contact>
+		</surface>
           </collision>
 
           <visual name='caster_visual'>
@@ -109,7 +123,79 @@
        </link>
           
 	<link name="left_wheel">
-	<pose>0.1 0.13 0.2 0 1.5707 1.5707</pose>
+	<pose>0.12 0.13 0.2 0 1.5707 1.5707</pose>
+	<inertial>
+		<mass>1.0</mass>
+		<inertia>
+		<ixx>0.043333</ixx>
+		<iyy>0.043333</iyy>
+		<izz>0.005333</izz>
+		</inertia>
+	</inertial>
+	<collision name="collision">
+	  <geometry>
+	    <cylinder>
+	      <radius>.1</radius>
+	      <length>.05</length>
+	    </cylinder>
+	  </geometry>
+	  <surface>
+		    <contact>
+		      <ode>
+			<max_vel>0</max_vel>
+		      </ode>
+		    </contact>
+		</surface>
+	</collision>
+	<visual name="visual">
+	  <geometry>
+	    <cylinder>
+	      <radius>.1</radius>
+	      <length>.05</length>
+	    </cylinder>
+	  </geometry>
+	</visual>
+	
+	</link>
+	
+	<link name="right_wheel">
+        <pose>0.12 -0.13 0.2 0 1.5707 1.5707</pose>
+        <inertial>
+		<mass>1.0</mass>
+		<inertia>
+		<ixx>0.043333</ixx>
+		<iyy>0.043333</iyy>
+		<izz>0.005333</izz>
+		</inertia>
+	</inertial>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>.1</radius>
+              <length>.05</length>
+            </cylinder>
+          </geometry>
+          <surface>
+		    <contact>
+		      <ode>
+			<max_vel>0</max_vel>
+		      </ode>
+		    </contact>
+		</surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>.1</radius>
+              <length>.05</length>
+            </cylinder>
+          </geometry>
+        </visual>
+      </link>
+      
+      <!--
+      <link name="back_left_wheel">
+	<pose>-0.12 0.13 0.2 0 1.5707 1.5707</pose>
 	<collision name="collision">
 	  <geometry>
 	    <cylinder>
@@ -129,8 +215,8 @@
 	
 	</link>
 	
-	<link name="right_wheel">
-        <pose>0.1 -0.13 0.2 0 1.5707 1.5707</pose>
+	<link name="back_right_wheel">
+        <pose>-0.12 -0.13 0.2 0 1.5707 1.5707</pose>
         <collision name="collision">
           <geometry>
             <cylinder>
@@ -148,6 +234,7 @@
           </geometry>
         </visual>
       </link>
+      -->
       
       <joint type="revolute" name="left_wheel_joint">
         <pose>0 0 -0.03 0 0 0</pose>
@@ -166,5 +253,26 @@
           <xyz>0 1 0</xyz>
         </axis>
       </joint>
+      
+      <!--
+      <joint type="revolute" name="back_left_wheel_joint">
+        <pose>0 0 -0.03 0 0 0</pose>
+        <child>back_left_wheel</child>
+        <parent>chassis</parent>
+        <axis>s
+          <xyz>0 1 0</xyz>
+        </axis>
+      </joint>
+
+      <joint type="revolute" name="back_right_wheel_joint">
+        <pose>0 0 0.03 0 0 0</pose>
+        <child>back_right_wheel</child>
+        <parent>chassis</parent>
+        <axis>
+          <xyz>0 1 0</xyz>
+        </axis>
+      </joint>
+      -->
+      
   </model>
 </sdf>

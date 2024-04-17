@@ -1,18 +1,17 @@
 <launch>
-  <!-- Set GAZEBO_MODEL_PATH for this launch session -->
-  
-  
-  <env name="GAZEBO_MODEL_PATH" value="$(optenv GAZEBO_MODEL_PATH):$(find utv_simulation)/models"/>
-  
-  <!--
-  <env name="GAZEBO_MODEL_PATH" value="$(find utv_simulation)/models"/>
-  -->
-  
+  <!-- Set environmen variables / arguments for this launch session -->
+  <env name="GAZEBO_MODEL_PATH" value="$(optenv GAZEBO_MODEL_PATH):$(find utv_simulation)/models"/>  
   <env name="GAZEBO_RESOURCE_PATH" value="$(find utv_simulation)/worlds"/>
-
   <arg name="world_file" default="simple_world.world"/>
+  <arg name="rvizconfig" default="$(find utv_simulation)/rviz/simple_robot.rviz" />
+  <arg name="rviz" default="true" />  
   
+  <!-- Launch Gazebo -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(arg world_file)"/>
   </include>
+  
+  <!-- Launch RViz -->
+  <!-- Launch rviz visualization -->
+  <node if="$(arg rviz)" name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" />
 </launch>
